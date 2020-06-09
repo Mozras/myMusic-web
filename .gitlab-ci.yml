@@ -1,0 +1,26 @@
+image: node:latest
+
+stages:
+  - code-testing
+  - staging-server
+  - acceptance-testing
+
+linting:
+  stage: code-testing
+  script:
+    - npm install
+    - npm run linter
+
+unit-testing:
+  stage: code-testing
+  script:
+  - npm install
+  - npm test
+
+
+  artifacts:
+    paths:
+      - docs
+    expire_in: 30 days
+  only:
+    - master

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Musify</title>
+</head>
+
+<div class="container">
+    <body>
+        <h1>{{filepath}}</h1>
+        <h1>Home</h1>
+        
+        <a href="/logout">
+            <input type="button" value="Log out" />
+        </a></p>
+        <p><span style="color: hsl(0, 0%, 91%);">_____________________________________________________________________________________</span></p>
+        <style>
+        table, th, td {
+        }
+        </style>
+        <table style="width:100%;" cellpadding="20">
+        <tr>
+            <th>Music</th>
+            <th>Tags</th>
+        </tr>
+        {{#each items}}
+        
+
+        <tr style="height:10%">
+            <td valign="top"><a href="#" onclick="document.getElementById('{{@index}}').play()">{{this.name}}</a>
+            <p><audio id='{{@index}}' src='{{path.[1]}}' controls></audio></p>
+            </td>
+            <td valign="top">
+                <p><span style = "font-family:verdana">Album:</span>   {{tag.album}}</p>
+                <p><span style = "font-family:verdana">Title:</span>  {{tag.title}}</p>
+                <p><span style = "font-family:verdana">Artist</span>  {{tag.artist}}</p>
+                <p><span style = "font-family:verdana">Year:</span>   {{tag.year}}</p>
+
+                
+            </td>
+        </tr>
+        {{/each}}
+        </table>
+        <p><span style="color: hsl(0, 0%, 91%);">_____________________________________________________________________________________</span></p>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file_uploads">Upload your Music</label>
+                <input id="file" type="file" class="form-control-file" aria-describedby="Music File" placeholder="Upload File" name="mp3" accept=".mp3, .wav">
+            </div>
+            <p>
+                <input type="submit" value="Upload" id= "uploadFile">
+            </p>
+             {{#if msg}}
+        <p class="msg" style="color: rgb(56, 110, 2);">{{msg}}</p>
+        {{/if}}
+        
+        </form>
+        <br />
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
